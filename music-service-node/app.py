@@ -22,7 +22,7 @@ STREAMING_QUALITY = {
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index_new.html')
  
 @app.route('/login', methods=['POST'])
 def login():
@@ -59,13 +59,13 @@ def register():
     
     for field in required_fields:
         if not data[field]:
-            return render_template('index.html', message=f"Missing required field: {field}"), 400
+            return render_template('register.html', message=f"Missing required field: {field}"), 400
             
     response = requests.post("http://management-user-service:8084/register", json=data)
     if response.status_code == 200 or response.status_code == 201:
-        return render_template('index.html', message="User registered successfully")
+        return render_template('index_new.html', message="User registered successfully")
     else:
-        return render_template('index.html', message=response.content.decode('utf-8'))
+        return render_template('register.html', message=response.content.decode('utf-8'))
 
 @app.route('/users/me', methods=['GET'])
 def get_current_user():
