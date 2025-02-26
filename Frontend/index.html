@@ -63,13 +63,14 @@
         </div>
         
         <div class="sticky-nav-options">
-          <button class="badge nav-item hide">Login</button>
-          <button class="badge nav-item dark-badge">Register</button>
+          <button class="badge nav-item hide" onclick="redirectTo('login.html')">Login</button>
+          <button class="badge nav-item dark-badge" onclick="redirectTo('register.html')">Register</button>
           <button class="badge nav-item dark-badge">
             <i class="fa-regular fa-circle-down" style="margin-right: 5px;"></i>Install App
           </button>
           <i class="fa-regular fa-user nav-item"></i>
         </div>
+        
       </div>
       
 
@@ -157,6 +158,10 @@
   function scrollToSearch() {
     document.getElementById("search-bar").scrollIntoView({ behavior: "smooth" });
     document.getElementById("search-bar").querySelector("input").focus(); // Focus on the search bar
+  }
+
+  function redirectTo(page) {
+    window.location.href = page;
   }
 </script>
 </html>
